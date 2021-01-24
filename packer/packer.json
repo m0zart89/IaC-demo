@@ -1,0 +1,39 @@
+{
+    "variables": {
+        "PACKER_USERNAME": "{{env `OS_USERNAME`}}",
+        "PACKER_PASSWORD": "{{env `OS_PASSWORD`}}",
+        "PACKER_AUTH_URL": "{{env `OS_AUTH_URL`}}",
+        "PACKER_REGION_ID": "{{env `OS_REGION_ID`}}",
+        "PACKER_TENANT_ID": "{{env `OS_TENANT_ID`}}",
+        "PACKER_SOURCE_ID": "{{env `SOURCE_ID`}}",
+        "PACKER_FLAVOR_ID": "{{env `FLAVOR_ID`}}",
+        "PACKER_NETWORK_ID": "{{env `NETWORK_ID`}}"
+    },
+    "builders": [
+        {
+            "type": "openstack",
+            "username": "{{user `PACKER_USERNAME`}}",
+            "password": "{{user `PACKER_PASSWORD`}}",
+            "identity_endpoint": "{{user `PACKER_AUTH_URL`}}",
+            "region": "{{user `PACKER_REGION_ID`}}",
+            "tenant_id": "{{user `PACKER_TENANT_ID`}}",
+            "image_name": "My Custom Image",
+            "ssh_username": "root",
+            "source_image": "{{user `PACKER_SOURCE_ID`}}",
+            "flavor": "{{user `PACKER_FLAVOR_ID`}}",
+            "ssh_ip_version": "4",
+            "config_drive": true,
+            "ssh_keypair_name": "mykey",
+            "ssh_private_key_file": "/root/.ssh/mykey.pri",
+            "networks": [
+                "{{user `PACKER_NETWORK_ID`}}"
+            ]
+        }
+    ],
+    "provisioners": [
+        {
+            "script": "setup_vm.sh",
+            "type": "shell"
+        }
+    ]
+}

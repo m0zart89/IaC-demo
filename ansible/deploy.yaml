@@ -1,0 +1,16 @@
+- name: Deploy on OpenStack
+  hosts: localhost
+  gather_facts: false
+  tasks:
+    - name: Deploy an instance
+      os_server:
+        state: present
+        name: lamp01
+        image: Ubuntu 16.04 LTS
+        key_name: mykey
+        config_drive: yes
+        wait: yes
+        flavor: iops20.xs
+        network: external_network
+        meta:
+          hostname: lamp01.localdomain

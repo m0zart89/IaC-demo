@@ -1,0 +1,6 @@
+- name: Setup ansible needed things.
+  hosts: all
+  gather_facts: no
+  tasks:
+     - name: "Update repository cache and Install Python 2 needed for running Ansible."
+       raw: sudo apt-get update; sudo apt-get -y install python-simplejson

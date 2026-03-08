@@ -1,14 +1,9 @@
-# IaC Demo
+# Infrastructure-as-Code Demo
 
 ## Purpose
-Infrastructure-as-Code demonstration for reproducible environment setup.
+Compact demo project showing reproducible environment setup principles.
 
-## Stack
-- Terraform
-- Kubernetes
-- CI/CD
-
-## Implemented
+## Focus
+- declarative infrastructure
+- environment structure
 - provisioning flow
-- deployment baseline
-- environment organization

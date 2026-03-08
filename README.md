@@ -1,1 +1,14 @@
-Infrastructure-as-Code demo project covering provisioning, automation and environment structure
+# IaC Demo
+
+## Purpose
+Infrastructure-as-Code demonstration for reproducible environment setup.
+
+## Stack
+- Terraform
+- Kubernetes
+- CI/CD
+
+## Implemented
+- provisioning flow
+- deployment baseline
+- environment organization
